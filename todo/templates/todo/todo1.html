@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo App</title>
+</head>
+<body>
+
+
+		{% for i in todo %}
+
+			{% if "active" in i.status %}
+				<div style="background: yellow;">
+					<h1>{{ i.text }}</h1>
+					<h4>{{ i.status }}</h4>
+				</div> 
+			{% endif %}
+			{% if "done" in i.status %}
+				<div style="background: green;">
+					<h1>{{ i.text }}</h1>
+					<h4>{{ i.status }}</h4>
+				</div> 
+			{% endif %}
+			{% if "cancled" in i.status %}
+				<div style="background: red;">
+					<h1>{{ i.text }}</h1>
+					<h4>{{ i.status }}</h4>
+				</div> 
+			{% endif %}
+
+
+		{% endfor %}
+			
+
+</body>
+</html>
