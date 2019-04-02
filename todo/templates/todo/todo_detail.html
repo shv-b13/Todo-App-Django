@@ -1,0 +1,9 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <div class="post">
+        <a class="btn btn-default" href="{% url 'todo_edit' pk=todo.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <h1>{{ todo.text }}</h1>
+        <p>{{ todo.status }}</p>
+    </div>
+{% endblock %}

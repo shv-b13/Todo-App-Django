@@ -6,7 +6,7 @@ class Todo(models.Model):
 		('active', 'active'),
 		('done', 'done'),
 		('cancled', 'cancled'))
-	text = models.TextField()
+	text = models.TextField()		
 	status = models.CharField(
 		max_length = 7,
 		choices = CHOICES_STATUS_LIST,

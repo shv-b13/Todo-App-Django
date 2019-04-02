@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Todo App</title>
-</head>
-<body>
+{% extends 'todo/base.html' %}
 
-
+{% block content %}
+<h1><a href="{% url 'todo_detail' pk=todo.pk %}">{{ todo.title }}</a></h1>
 		{% for i in todo %}
 
 			{% if "active" in i.status %}
@@ -30,6 +26,4 @@
 
 		{% endfor %}
 			
-
-</body>
-</html>
+{% endblock %}
