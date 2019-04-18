@@ -1,0 +1,9 @@
+{% extends 'moood/base.html' %}
+
+{% block content %}
+    <div class="mood">
+        <a class="btn btn-default" href="{% url 'mood_edit' pk=mood.pk %}">edit</a>
+        <h1>{{ mood.status}}</h1>
+        <h2>{{ mood.scale }}</h2>
+    </div>
+{% endblock %}

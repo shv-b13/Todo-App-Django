@@ -1,0 +1,17 @@
+{% extends 'mood/base.html' %}
+
+{% block content %}
+		{% for i in moods %}
+
+				<div>
+					<h1><a href="{% url 'mood_detail' pk=i.pk %}">My mood is {{ i.status }}</a></h1>
+					<!-- <h1>My mood is {{ i.status }}</h1> -->
+					<h2>My mood from 0 to 10 is: {{ i.scale }}</h2>
+					<h3>Did i do exercise: {{ i.exercise }}</h3>
+					<h4>Day: {{ i.data }}</h4>
+					<br/>
+				</div> 
+
+		{% endfor %}
+			
+{% endblock %}

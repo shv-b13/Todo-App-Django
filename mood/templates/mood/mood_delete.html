@@ -1,0 +1,12 @@
+{% extends 'mood/base.html' %}
+
+{% block content %}
+
+	<div class="mood">
+		<h1>{{mood.status}}</h1>
+		<h2>{{mood.scale|linebreaksbr}}</h2>
+	</div>
+	<p><a href="{url 'mood_edit' pk=mood.pk}">Edit</a></p>
+	<p><a href="{url 'mood_delete' pk=mood.pk}">Delete</a></p>
+
+{% endblock %}
