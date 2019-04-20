@@ -6,4 +6,4 @@ class MoodForm(forms.ModelForm):
 
 	class Meta:
 		model = Mood
-		fields = ['status', 'date', 'scale', 'exercise']
+		fields = ('status', 'data', 'scale', 'exercise')

@@ -1,11 +1,9 @@
 {% extends 'mood/base.html' %}
 
 {% block content %}
-
-<form method="post">{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Save">
-</form>
-
-
+	<h1>New mood</h1>
+	<form method="POST" class="post-form">{% csrf_token %}
+	    {{ form.as_p }}
+	    <input type="submit" value="Save">
+	</form>
 {% endblock %}

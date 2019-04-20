@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import ListView, UpdateView, DetailView, CreateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Mood
+from datetime import datetime
+
 # Create your views here.
 
 
@@ -12,6 +14,7 @@ class MoodList(ListView):
 class MoodDetail(DeleteView):
 	model = Mood 
 	context_object_name = 'mood'
+	template_name = 'mood/mood_detail.html'
 
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
@@ -19,20 +22,25 @@ class MoodDetail(DeleteView):
 
 class MoodCreate(CreateView):
 	model = Mood 
-	fields = ['status', 'date', 'scale', 'exercise']
+	fields = ['status', 'data', 'scale', 'exercise']
+	template_name = 'mood/mood_new.html'
 
 	def from_valid(self, form):
 		fcd = form.cleaned_data
 		now = timezone.now()
 		Mood.object.create(
 				status=fcd['status'],
-				exercise=fcd['exercise']
+				exercise=fcd['exercise'],
+				scale=['scale'],
+				data=['data'],
 				)
-		return redirect('mood_list')
+		
+	def get_success_url(self):
+		return reverse_lazy('mood_list')
 
 class MoodUpdate(UpdateView):
 	model = Mood
-	fields = ['status', 'date', 'scale', 'exercise']
+	fields = ['status', 'scale', 'exercise']
 	success_url = reverse_lazy('mood_list')
 
 class MoodDelete(DeleteView):

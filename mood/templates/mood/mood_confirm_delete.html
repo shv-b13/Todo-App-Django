@@ -6,6 +6,9 @@
 	<form method="post">{% csrf_token %}
 		a u sure to delete {{ object }} ?
 		<input type="submit" value="Submit">
+		<button>
+			<a href="{% url 'mood_list' %}">CANCLE</a>	
+		</button> 	
 	</form>	
 	
 
